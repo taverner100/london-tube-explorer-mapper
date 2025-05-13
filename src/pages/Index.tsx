@@ -14,7 +14,7 @@ const Index = () => {
       </div>
 
       <Tabs 
-        value={activeTab} 
+        defaultValue={activeTab} 
         onValueChange={setActiveTab}
         className="flex-1 flex flex-col"
       >
