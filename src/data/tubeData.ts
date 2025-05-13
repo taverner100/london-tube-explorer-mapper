@@ -1,5 +1,5 @@
 
-import { TubeLine } from "@/types/tube";
+import { TubeLine, Station } from "@/types/tube";
 
 // This is a simplified version of the London Underground map
 // The coordinates are normalized between 0 and 100 for positioning
