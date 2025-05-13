@@ -91,8 +91,6 @@ export const tubeLines: TubeLine[] = [
       { id: "central-wanstead", name: "Wanstead", x: 69, y: 22, connections: ["central-redbridge", "central-leytonstone"] }
     ]
   },
-  // Additional line data would follow the same pattern
-  // For brevity, I'm not including all lines in this example
   {
     id: "victoria",
     name: "Victoria",
@@ -185,4 +183,5 @@ export const tubeLines: TubeLine[] = [
       { id: "district-westminster", name: "Westminster", x: 41, y: 64, connections: ["district-embankment", "district-st-james-park"], interchange: ["circle", "jubilee"] },
       { id: "district-st-james-park", name: "St James's Park", x: 39, y: 66, connections: ["district-westminster", "district-victoria"], interchange: ["circle"] },
       { id: "district-victoria", name: "Victoria", x: 37, y: 68, connections: ["district-st-james-park", "district-sloane-square"], interchange: ["circle", "victoria"] },
-      { id: "district-sloane-square", name: "Sloane Square", x: 35, y: 66
+      { id: "district-sloane-square", name: "Sloane Square", x: 35, y: 66, connections: ["district-victoria", "district-south-kensington"], interchange: ["circle"] },
+      { id:
