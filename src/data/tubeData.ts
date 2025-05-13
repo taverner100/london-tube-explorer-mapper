@@ -1,4 +1,3 @@
-
 import { TubeLine, Station } from "@/types/tube";
 
 // This is a simplified version of the London Underground map
@@ -116,25 +115,74 @@ export const tubeLines: TubeLine[] = [
       { id: "victoria-stockwell", name: "Stockwell", x: 47, y: 57, connections: ["victoria-vauxhall", "victoria-brixton"], interchange: ["northern"] },
       { id: "victoria-brixton", name: "Brixton", x: 45, y: 60, connections: ["victoria-stockwell"] }
     ]
-  }
-];
-
-// Helper function to get all stations across all lines
-export const getAllStations = () => {
-  const stations: Record<string, Station> = {};
-  
-  tubeLines.forEach(line => {
-    line.stations.forEach(station => {
-      if (!stations[station.id]) {
-        stations[station.id] = station;
-      }
-    });
-  });
-  
-  return stations;
-};
-
-// Get total station count (unique stations)
-export const getTotalStationCount = (): number => {
-  return Object.keys(getAllStations()).length;
-};
+  },
+  {
+    id: "circle",
+    name: "Circle",
+    color: "#FFD300",
+    stations: [
+      { id: "circle-paddington", name: "Paddington", x: 33, y: 41, connections: ["circle-edgware-road", "circle-bayswater"], interchange: ["bakerloo", "district", "hammersmith"] },
+      { id: "circle-edgware-road", name: "Edgware Road", x: 35, y: 39, connections: ["circle-paddington", "circle-baker-street"], interchange: ["bakerloo", "district", "hammersmith"] },
+      { id: "circle-baker-street", name: "Baker Street", x: 37, y: 37, connections: ["circle-edgware-road", "circle-great-portland-street"], interchange: ["bakerloo", "jubilee", "metropolitan"] },
+      { id: "circle-great-portland-street", name: "Great Portland Street", x: 39, y: 35, connections: ["circle-baker-street", "circle-euston-square"] },
+      { id: "circle-euston-square", name: "Euston Square", x: 41, y: 33, connections: ["circle-great-portland-street", "circle-kings-cross"], interchange: ["metropolitan", "hammersmith"] },
+      { id: "circle-kings-cross", name: "King's Cross St Pancras", x: 43, y: 31, connections: ["circle-euston-square", "circle-farringdon"], interchange: ["metropolitan", "hammersmith", "northern", "piccadilly", "victoria"] },
+      { id: "circle-farringdon", name: "Farringdon", x: 45, y: 34, connections: ["circle-kings-cross", "circle-barbican"], interchange: ["metropolitan", "hammersmith", "elizabeth"] },
+      { id: "circle-barbican", name: "Barbican", x: 47, y: 37, connections: ["circle-farringdon", "circle-moorgate"], interchange: ["metropolitan", "hammersmith"] },
+      { id: "circle-moorgate", name: "Moorgate", x: 49, y: 40, connections: ["circle-barbican", "circle-liverpool-street"], interchange: ["metropolitan", "hammersmith", "northern"] },
+      { id: "circle-liverpool-street", name: "Liverpool Street", x: 51, y: 43, connections: ["circle-moorgate", "circle-aldgate"], interchange: ["metropolitan", "hammersmith", "central", "elizabeth"] },
+      { id: "circle-aldgate", name: "Aldgate", x: 53, y: 46, connections: ["circle-liverpool-street", "circle-tower-hill"], interchange: ["metropolitan"] },
+      { id: "circle-tower-hill", name: "Tower Hill", x: 55, y: 49, connections: ["circle-aldgate", "circle-monument"], interchange: ["district"] },
+      { id: "circle-monument", name: "Monument", x: 53, y: 52, connections: ["circle-tower-hill", "circle-cannon-street"], interchange: ["district"] },
+      { id: "circle-cannon-street", name: "Cannon Street", x: 51, y: 54, connections: ["circle-monument", "circle-mansion-house"], interchange: ["district"] },
+      { id: "circle-mansion-house", name: "Mansion House", x: 49, y: 56, connections: ["circle-cannon-street", "circle-blackfriars"], interchange: ["district"] },
+      { id: "circle-blackfriars", name: "Blackfriars", x: 47, y: 58, connections: ["circle-mansion-house", "circle-temple"], interchange: ["district"] },
+      { id: "circle-temple", name: "Temple", x: 45, y: 60, connections: ["circle-blackfriars", "circle-embankment"], interchange: ["district"] },
+      { id: "circle-embankment", name: "Embankment", x: 43, y: 62, connections: ["circle-temple", "circle-westminster"], interchange: ["district", "bakerloo", "northern"] },
+      { id: "circle-westminster", name: "Westminster", x: 41, y: 64, connections: ["circle-embankment", "circle-st-james-park"], interchange: ["district", "jubilee"] },
+      { id: "circle-st-james-park", name: "St James's Park", x: 39, y: 66, connections: ["circle-westminster", "circle-victoria"], interchange: ["district"] },
+      { id: "circle-victoria", name: "Victoria", x: 37, y: 68, connections: ["circle-st-james-park", "circle-sloane-square"], interchange: ["district", "victoria"] },
+      { id: "circle-sloane-square", name: "Sloane Square", x: 35, y: 66, connections: ["circle-victoria", "circle-south-kensington"], interchange: ["district"] },
+      { id: "circle-south-kensington", name: "South Kensington", x: 33, y: 64, connections: ["circle-sloane-square", "circle-gloucester-road"], interchange: ["district", "piccadilly"] },
+      { id: "circle-gloucester-road", name: "Gloucester Road", x: 31, y: 62, connections: ["circle-south-kensington", "circle-high-street-kensington"], interchange: ["district", "piccadilly"] },
+      { id: "circle-high-street-kensington", name: "High Street Kensington", x: 29, y: 60, connections: ["circle-gloucester-road", "circle-notting-hill-gate"], interchange: ["district"] },
+      { id: "circle-notting-hill-gate", name: "Notting Hill Gate", x: 27, y: 58, connections: ["circle-high-street-kensington", "circle-bayswater"], interchange: ["central", "district"] },
+      { id: "circle-bayswater", name: "Bayswater", x: 25, y: 56, connections: ["circle-notting-hill-gate", "circle-paddington"], interchange: ["district"] }
+    ]
+  },
+  {
+    id: "district",
+    name: "District",
+    color: "#00782A",
+    stations: [
+      { id: "district-upminster", name: "Upminster", x: 95, y: 55, connections: ["district-upminster-bridge"] },
+      { id: "district-upminster-bridge", name: "Upminster Bridge", x: 93, y: 55, connections: ["district-upminster", "district-hornchurch"] },
+      { id: "district-hornchurch", name: "Hornchurch", x: 91, y: 55, connections: ["district-upminster-bridge", "district-elm-park"] },
+      { id: "district-elm-park", name: "Elm Park", x: 89, y: 55, connections: ["district-hornchurch", "district-dagenham-east"] },
+      { id: "district-dagenham-east", name: "Dagenham East", x: 87, y: 55, connections: ["district-elm-park", "district-dagenham-heathway"] },
+      { id: "district-dagenham-heathway", name: "Dagenham Heathway", x: 85, y: 55, connections: ["district-dagenham-east", "district-becontree"] },
+      { id: "district-becontree", name: "Becontree", x: 83, y: 55, connections: ["district-dagenham-heathway", "district-upney"] },
+      { id: "district-upney", name: "Upney", x: 81, y: 55, connections: ["district-becontree", "district-barking"] },
+      { id: "district-barking", name: "Barking", x: 79, y: 55, connections: ["district-upney", "district-east-ham"] },
+      { id: "district-east-ham", name: "East Ham", x: 77, y: 54, connections: ["district-barking", "district-upton-park"] },
+      { id: "district-upton-park", name: "Upton Park", x: 75, y: 53, connections: ["district-east-ham", "district-plaistow"] },
+      { id: "district-plaistow", name: "Plaistow", x: 73, y: 52, connections: ["district-upton-park", "district-west-ham"] },
+      { id: "district-west-ham", name: "West Ham", x: 71, y: 51, connections: ["district-plaistow", "district-bromley-by-bow"], interchange: ["jubilee", "dlr", "elizabeth"] },
+      { id: "district-bromley-by-bow", name: "Bromley-by-Bow", x: 69, y: 50, connections: ["district-west-ham", "district-bow-road"] },
+      { id: "district-bow-road", name: "Bow Road", x: 67, y: 49, connections: ["district-bromley-by-bow", "district-mile-end"] },
+      { id: "district-mile-end", name: "Mile End", x: 65, y: 48, connections: ["district-bow-road", "district-stepney-green"], interchange: ["central", "hammersmith"] },
+      { id: "district-stepney-green", name: "Stepney Green", x: 63, y: 47, connections: ["district-mile-end", "district-whitechapel"] },
+      { id: "district-whitechapel", name: "Whitechapel", x: 61, y: 46, connections: ["district-stepney-green", "district-aldgate-east"], interchange: ["hammersmith", "elizabeth"] },
+      { id: "district-aldgate-east", name: "Aldgate East", x: 59, y: 45, connections: ["district-whitechapel", "district-tower-hill"] },
+      { id: "district-tower-hill", name: "Tower Hill", x: 57, y: 44, connections: ["district-aldgate-east", "district-monument"], interchange: ["circle"] },
+      // Main line section that circles with the Circle line
+      { id: "district-monument", name: "Monument", x: 53, y: 52, connections: ["district-tower-hill", "district-cannon-street"], interchange: ["circle"] },
+      { id: "district-cannon-street", name: "Cannon Street", x: 51, y: 54, connections: ["district-monument", "district-mansion-house"], interchange: ["circle"] },
+      { id: "district-mansion-house", name: "Mansion House", x: 49, y: 56, connections: ["district-cannon-street", "district-blackfriars"], interchange: ["circle"] },
+      { id: "district-blackfriars", name: "Blackfriars", x: 47, y: 58, connections: ["district-mansion-house", "district-temple"], interchange: ["circle"] },
+      { id: "district-temple", name: "Temple", x: 45, y: 60, connections: ["district-blackfriars", "district-embankment"], interchange: ["circle"] },
+      { id: "district-embankment", name: "Embankment", x: 43, y: 62, connections: ["district-temple", "district-westminster"], interchange: ["circle", "bakerloo", "northern"] },
+      { id: "district-westminster", name: "Westminster", x: 41, y: 64, connections: ["district-embankment", "district-st-james-park"], interchange: ["circle", "jubilee"] },
+      { id: "district-st-james-park", name: "St James's Park", x: 39, y: 66, connections: ["district-westminster", "district-victoria"], interchange: ["circle"] },
+      { id: "district-victoria", name: "Victoria", x: 37, y: 68, connections: ["district-st-james-park", "district-sloane-square"], interchange: ["circle", "victoria"] },
+      { id: "district-sloane-square", name: "Sloane Square", x: 35, y: 66
