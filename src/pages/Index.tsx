@@ -2,6 +2,7 @@
 import { useState } from "react";
 import TubeMap from "@/components/TubeMap";
 import UndergroundMap from "@/components/map/UndergroundMap";
+import OfficialTubeMap from "@/components/OfficialTubeMap";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Index = () => {
@@ -21,7 +22,8 @@ const Index = () => {
         <div className="flex justify-center border-b bg-white">
           <TabsList className="my-2">
             <TabsTrigger value="tracker">Station Tracker</TabsTrigger>
-            <TabsTrigger value="map">Interactive Map</TabsTrigger>
+            <TabsTrigger value="schematic">Schematic Map</TabsTrigger>
+            <TabsTrigger value="official">Official Map</TabsTrigger>
           </TabsList>
         </div>
         
@@ -29,8 +31,12 @@ const Index = () => {
           <TubeMap />
         </TabsContent>
         
-        <TabsContent value="map" className="flex-1 p-0 m-0">
+        <TabsContent value="schematic" className="flex-1 p-0 m-0">
           <UndergroundMap />
+        </TabsContent>
+        
+        <TabsContent value="official" className="flex-1 p-0 m-0">
+          <OfficialTubeMap />
         </TabsContent>
       </Tabs>
     </div>
