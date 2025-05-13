@@ -1,0 +1,140 @@
+
+import { TubeLine } from "@/types/tube";
+
+// This is a simplified version of the London Underground map
+// The coordinates are normalized between 0 and 100 for positioning
+export const tubeLines: TubeLine[] = [
+  {
+    id: "bakerloo",
+    name: "Bakerloo",
+    color: "#B36305",
+    stations: [
+      { id: "bakerloo-harrow", name: "Harrow & Wealdstone", x: 15, y: 5, connections: ["bakerloo-kenton"] },
+      { id: "bakerloo-kenton", name: "Kenton", x: 17, y: 8, connections: ["bakerloo-harrow", "bakerloo-south-kenton"] },
+      { id: "bakerloo-south-kenton", name: "South Kenton", x: 19, y: 11, connections: ["bakerloo-kenton", "bakerloo-north-wembley"] },
+      { id: "bakerloo-north-wembley", name: "North Wembley", x: 21, y: 14, connections: ["bakerloo-south-kenton", "bakerloo-wembley-central"] },
+      { id: "bakerloo-wembley-central", name: "Wembley Central", x: 23, y: 17, connections: ["bakerloo-north-wembley", "bakerloo-stonebridge-park"] },
+      { id: "bakerloo-stonebridge-park", name: "Stonebridge Park", x: 25, y: 20, connections: ["bakerloo-wembley-central", "bakerloo-harlesden"] },
+      { id: "bakerloo-harlesden", name: "Harlesden", x: 27, y: 23, connections: ["bakerloo-stonebridge-park", "bakerloo-willesden-junction"] },
+      { id: "bakerloo-willesden-junction", name: "Willesden Junction", x: 29, y: 26, connections: ["bakerloo-harlesden", "bakerloo-kensal-green"] },
+      { id: "bakerloo-kensal-green", name: "Kensal Green", x: 31, y: 29, connections: ["bakerloo-willesden-junction", "bakerloo-queens-park"] },
+      { id: "bakerloo-queens-park", name: "Queen's Park", x: 33, y: 32, connections: ["bakerloo-kensal-green", "bakerloo-kilburn-park"] },
+      { id: "bakerloo-kilburn-park", name: "Kilburn Park", x: 35, y: 35, connections: ["bakerloo-queens-park", "bakerloo-maida-vale"] },
+      { id: "bakerloo-maida-vale", name: "Maida Vale", x: 37, y: 38, connections: ["bakerloo-kilburn-park", "bakerloo-warwick-avenue"] },
+      { id: "bakerloo-warwick-avenue", name: "Warwick Avenue", x: 39, y: 41, connections: ["bakerloo-maida-vale", "bakerloo-paddington"] },
+      { id: "bakerloo-paddington", name: "Paddington", x: 41, y: 44, connections: ["bakerloo-warwick-avenue", "bakerloo-edgware-road"], interchange: ["circle", "district", "hammersmith"] },
+      { id: "bakerloo-edgware-road", name: "Edgware Road", x: 43, y: 47, connections: ["bakerloo-paddington", "bakerloo-marylebone"] },
+      { id: "bakerloo-marylebone", name: "Marylebone", x: 45, y: 50, connections: ["bakerloo-edgware-road", "bakerloo-baker-street"] },
+      { id: "bakerloo-baker-street", name: "Baker Street", x: 47, y: 52, connections: ["bakerloo-marylebone", "bakerloo-regents-park"], interchange: ["circle", "jubilee", "metropolitan"] },
+      { id: "bakerloo-regents-park", name: "Regent's Park", x: 49, y: 54, connections: ["bakerloo-baker-street", "bakerloo-oxford-circus"] },
+      { id: "bakerloo-oxford-circus", name: "Oxford Circus", x: 51, y: 56, connections: ["bakerloo-regents-park", "bakerloo-piccadilly-circus"], interchange: ["central", "victoria"] },
+      { id: "bakerloo-piccadilly-circus", name: "Piccadilly Circus", x: 53, y: 58, connections: ["bakerloo-oxford-circus", "bakerloo-charing-cross"], interchange: ["piccadilly"] },
+      { id: "bakerloo-charing-cross", name: "Charing Cross", x: 55, y: 60, connections: ["bakerloo-piccadilly-circus", "bakerloo-embankment"], interchange: ["northern"] },
+      { id: "bakerloo-embankment", name: "Embankment", x: 57, y: 62, connections: ["bakerloo-charing-cross", "bakerloo-waterloo"], interchange: ["circle", "district", "northern"] },
+      { id: "bakerloo-waterloo", name: "Waterloo", x: 59, y: 65, connections: ["bakerloo-embankment", "bakerloo-lambeth-north"], interchange: ["jubilee", "northern", "waterloo"] },
+      { id: "bakerloo-lambeth-north", name: "Lambeth North", x: 61, y: 68, connections: ["bakerloo-waterloo", "bakerloo-elephant-castle"] },
+      { id: "bakerloo-elephant-castle", name: "Elephant & Castle", x: 63, y: 71, connections: ["bakerloo-lambeth-north"], interchange: ["northern"] }
+    ]
+  },
+  {
+    id: "central",
+    name: "Central",
+    color: "#E32017",
+    stations: [
+      { id: "central-west-ruislip", name: "West Ruislip", x: 5, y: 25, connections: ["central-ruislip-gardens"] },
+      { id: "central-ruislip-gardens", name: "Ruislip Gardens", x: 7, y: 27, connections: ["central-west-ruislip", "central-south-ruislip"] },
+      { id: "central-south-ruislip", name: "South Ruislip", x: 9, y: 29, connections: ["central-ruislip-gardens", "central-northolt"] },
+      { id: "central-northolt", name: "Northolt", x: 11, y: 31, connections: ["central-south-ruislip", "central-greenford"] },
+      { id: "central-greenford", name: "Greenford", x: 13, y: 33, connections: ["central-northolt", "central-perivale"] },
+      { id: "central-perivale", name: "Perivale", x: 15, y: 35, connections: ["central-greenford", "central-hanger-lane"] },
+      { id: "central-hanger-lane", name: "Hanger Lane", x: 17, y: 37, connections: ["central-perivale", "central-north-acton"] },
+      { id: "central-ealing-broadway", name: "Ealing Broadway", x: 15, y: 40, connections: ["central-west-acton"], interchange: ["district"] },
+      { id: "central-west-acton", name: "West Acton", x: 17, y: 39, connections: ["central-ealing-broadway", "central-north-acton"] },
+      { id: "central-north-acton", name: "North Acton", x: 19, y: 39, connections: ["central-west-acton", "central-hanger-lane", "central-east-acton"] },
+      { id: "central-east-acton", name: "East Acton", x: 22, y: 39, connections: ["central-north-acton", "central-white-city"] },
+      { id: "central-white-city", name: "White City", x: 25, y: 39, connections: ["central-east-acton", "central-shepherds-bush"] },
+      { id: "central-shepherds-bush", name: "Shepherd's Bush", x: 28, y: 39, connections: ["central-white-city", "central-holland-park"] },
+      { id: "central-holland-park", name: "Holland Park", x: 31, y: 39, connections: ["central-shepherds-bush", "central-notting-hill-gate"] },
+      { id: "central-notting-hill-gate", name: "Notting Hill Gate", x: 34, y: 39, connections: ["central-holland-park", "central-queensway"], interchange: ["circle", "district"] },
+      { id: "central-queensway", name: "Queensway", x: 37, y: 39, connections: ["central-notting-hill-gate", "central-lancaster-gate"] },
+      { id: "central-lancaster-gate", name: "Lancaster Gate", x: 40, y: 39, connections: ["central-queensway", "central-marble-arch"] },
+      { id: "central-marble-arch", name: "Marble Arch", x: 43, y: 39, connections: ["central-lancaster-gate", "central-bond-street"] },
+      { id: "central-bond-street", name: "Bond Street", x: 46, y: 40, connections: ["central-marble-arch", "central-oxford-circus"], interchange: ["jubilee"] },
+      { id: "central-oxford-circus", name: "Oxford Circus", x: 49, y: 41, connections: ["central-bond-street", "central-tottenham-court-road"], interchange: ["bakerloo", "victoria"] },
+      { id: "central-tottenham-court-road", name: "Tottenham Court Road", x: 52, y: 42, connections: ["central-oxford-circus", "central-holborn"], interchange: ["northern", "elizabeth"] },
+      { id: "central-holborn", name: "Holborn", x: 55, y: 43, connections: ["central-tottenham-court-road", "central-chancery-lane"], interchange: ["piccadilly"] },
+      { id: "central-chancery-lane", name: "Chancery Lane", x: 58, y: 44, connections: ["central-holborn", "central-st-pauls"] },
+      { id: "central-st-pauls", name: "St. Paul's", x: 61, y: 45, connections: ["central-chancery-lane", "central-bank"] },
+      { id: "central-bank", name: "Bank", x: 64, y: 46, connections: ["central-st-pauls", "central-liverpool-street"], interchange: ["northern", "waterloo", "circle", "district", "metropolitan"] },
+      { id: "central-liverpool-street", name: "Liverpool Street", x: 67, y: 47, connections: ["central-bank", "central-bethnal-green"], interchange: ["circle", "hammersmith", "metropolitan", "elizabeth"] },
+      { id: "central-bethnal-green", name: "Bethnal Green", x: 70, y: 48, connections: ["central-liverpool-street", "central-mile-end"] },
+      { id: "central-mile-end", name: "Mile End", x: 73, y: 49, connections: ["central-bethnal-green", "central-stratford"], interchange: ["district", "hammersmith"] },
+      { id: "central-stratford", name: "Stratford", x: 77, y: 50, connections: ["central-mile-end", "central-leyton"], interchange: ["jubilee", "dlr", "overground", "elizabeth"] },
+      { id: "central-leyton", name: "Leyton", x: 80, y: 49, connections: ["central-stratford", "central-leytonstone"] },
+      { id: "central-leytonstone", name: "Leytonstone", x: 83, y: 48, connections: ["central-leyton", "central-wanstead", "central-snaresbrook"] },
+      { id: "central-snaresbrook", name: "Snaresbrook", x: 85, y: 46, connections: ["central-leytonstone", "central-south-woodford"] },
+      { id: "central-south-woodford", name: "South Woodford", x: 87, y: 44, connections: ["central-snaresbrook", "central-woodford"] },
+      { id: "central-woodford", name: "Woodford", x: 89, y: 42, connections: ["central-south-woodford", "central-buckhurst-hill", "central-roding-valley"] },
+      { id: "central-buckhurst-hill", name: "Buckhurst Hill", x: 91, y: 40, connections: ["central-woodford", "central-loughton"] },
+      { id: "central-loughton", name: "Loughton", x: 93, y: 38, connections: ["central-buckhurst-hill", "central-debden"] },
+      { id: "central-debden", name: "Debden", x: 95, y: 36, connections: ["central-loughton", "central-theydon-bois"] },
+      { id: "central-theydon-bois", name: "Theydon Bois", x: 97, y: 34, connections: ["central-debden", "central-epping"] },
+      { id: "central-epping", name: "Epping", x: 99, y: 32, connections: ["central-theydon-bois"] },
+      { id: "central-roding-valley", name: "Roding Valley", x: 87, y: 40, connections: ["central-woodford", "central-chigwell"] },
+      { id: "central-chigwell", name: "Chigwell", x: 85, y: 38, connections: ["central-roding-valley", "central-grange-hill"] },
+      { id: "central-grange-hill", name: "Grange Hill", x: 83, y: 36, connections: ["central-chigwell", "central-hainault"] },
+      { id: "central-hainault", name: "Hainault", x: 81, y: 34, connections: ["central-grange-hill", "central-fairlop"] },
+      { id: "central-fairlop", name: "Fairlop", x: 79, y: 32, connections: ["central-hainault", "central-barkingside"] },
+      { id: "central-barkingside", name: "Barkingside", x: 77, y: 30, connections: ["central-fairlop", "central-newbury-park"] },
+      { id: "central-newbury-park", name: "Newbury Park", x: 75, y: 28, connections: ["central-barkingside", "central-gants-hill"] },
+      { id: "central-gants-hill", name: "Gants Hill", x: 73, y: 26, connections: ["central-newbury-park", "central-redbridge"] },
+      { id: "central-redbridge", name: "Redbridge", x: 71, y: 24, connections: ["central-gants-hill", "central-wanstead"] },
+      { id: "central-wanstead", name: "Wanstead", x: 69, y: 22, connections: ["central-redbridge", "central-leytonstone"] }
+    ]
+  },
+  // Additional line data would follow the same pattern
+  // For brevity, I'm not including all lines in this example
+  {
+    id: "victoria",
+    name: "Victoria",
+    color: "#0098D4",
+    stations: [
+      { id: "victoria-walthamstow-central", name: "Walthamstow Central", x: 75, y: 15, connections: ["victoria-blackhorse-road"] },
+      { id: "victoria-blackhorse-road", name: "Blackhorse Road", x: 73, y: 18, connections: ["victoria-walthamstow-central", "victoria-tottenham-hale"] },
+      { id: "victoria-tottenham-hale", name: "Tottenham Hale", x: 71, y: 21, connections: ["victoria-blackhorse-road", "victoria-seven-sisters"] },
+      { id: "victoria-seven-sisters", name: "Seven Sisters", x: 69, y: 24, connections: ["victoria-tottenham-hale", "victoria-finsbury-park"] },
+      { id: "victoria-finsbury-park", name: "Finsbury Park", x: 67, y: 27, connections: ["victoria-seven-sisters", "victoria-highbury"], interchange: ["piccadilly"] },
+      { id: "victoria-highbury", name: "Highbury & Islington", x: 65, y: 30, connections: ["victoria-finsbury-park", "victoria-kings-cross"], interchange: ["overground"] },
+      { id: "victoria-kings-cross", name: "King's Cross St Pancras", x: 63, y: 33, connections: ["victoria-highbury", "victoria-euston"], interchange: ["circle", "hammersmith", "metropolitan", "northern", "piccadilly"] },
+      { id: "victoria-euston", name: "Euston", x: 61, y: 36, connections: ["victoria-kings-cross", "victoria-warren-street"], interchange: ["northern"] },
+      { id: "victoria-warren-street", name: "Warren Street", x: 59, y: 39, connections: ["victoria-euston", "victoria-oxford-circus"], interchange: ["northern"] },
+      { id: "victoria-oxford-circus", name: "Oxford Circus", x: 57, y: 42, connections: ["victoria-warren-street", "victoria-green-park"], interchange: ["bakerloo", "central"] },
+      { id: "victoria-green-park", name: "Green Park", x: 55, y: 45, connections: ["victoria-oxford-circus", "victoria-victoria"], interchange: ["jubilee", "piccadilly"] },
+      { id: "victoria-victoria", name: "Victoria", x: 53, y: 48, connections: ["victoria-green-park", "victoria-pimlico"], interchange: ["circle", "district"] },
+      { id: "victoria-pimlico", name: "Pimlico", x: 51, y: 51, connections: ["victoria-victoria", "victoria-vauxhall"] },
+      { id: "victoria-vauxhall", name: "Vauxhall", x: 49, y: 54, connections: ["victoria-pimlico", "victoria-stockwell"] },
+      { id: "victoria-stockwell", name: "Stockwell", x: 47, y: 57, connections: ["victoria-vauxhall", "victoria-brixton"], interchange: ["northern"] },
+      { id: "victoria-brixton", name: "Brixton", x: 45, y: 60, connections: ["victoria-stockwell"] }
+    ]
+  }
+];
+
+// Helper function to get all stations across all lines
+export const getAllStations = () => {
+  const stations: Record<string, Station> = {};
+  
+  tubeLines.forEach(line => {
+    line.stations.forEach(station => {
+      if (!stations[station.id]) {
+        stations[station.id] = station;
+      }
+    });
+  });
+  
+  return stations;
+};
+
+// Get total station count (unique stations)
+export const getTotalStationCount = (): number => {
+  return Object.keys(getAllStations()).length;
+};

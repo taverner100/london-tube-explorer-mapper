@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// London Underground line colors
+				tube: {
+					bakerloo: '#B36305',
+					central: '#E32017',
+					circle: '#FFD300',
+					district: '#00782A',
+					hammersmith: '#F3A9BB',
+					jubilee: '#A0A5A9',
+					metropolitan: '#9B0056',
+					northern: '#000000',
+					piccadilly: '#003688',
+					victoria: '#0098D4',
+					waterloo: '#95CDBA',
+					elizabeth: '#6950A1',
+					dlr: '#00AFAD',
+					overground: '#EE7C0E',
 				}
 			},
 			borderRadius: {
@@ -84,11 +102,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-scale': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.1)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-scale': 'pulse-scale 2s ease-in-out infinite'
 			}
 		}
 	},
