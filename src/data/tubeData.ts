@@ -1,4 +1,3 @@
-
 import { TubeLine, Station } from "@/types/tube";
 
 // This is a simplified version of the London Underground map
@@ -131,20 +130,20 @@ export const tubeLines: TubeLine[] = [
       { id: "circle-moorgate", name: "Moorgate", x: 49, y: 40, connections: ["circle-barbican", "circle-liverpool-street"], interchange: ["metropolitan", "hammersmith", "northern"] },
       { id: "circle-liverpool-street", name: "Liverpool Street", x: 51, y: 43, connections: ["circle-moorgate", "circle-aldgate"], interchange: ["metropolitan", "hammersmith", "central", "elizabeth"] },
       { id: "circle-aldgate", name: "Aldgate", x: 53, y: 46, connections: ["circle-liverpool-street", "circle-tower-hill"], interchange: ["metropolitan"] },
-      { id: "circle-tower-hill", name: "Tower Hill", x: 55, y: 49, connections: ["circle-aldgate", "circle-monument"], interchange: ["district"] },
-      { id: "circle-monument", name: "Monument", x: 53, y: 52, connections: ["circle-tower-hill", "circle-cannon-street"], interchange: ["district"] },
-      { id: "circle-cannon-street", name: "Cannon Street", x: 51, y: 54, connections: ["circle-monument", "circle-mansion-house"], interchange: ["district"] },
-      { id: "circle-mansion-house", name: "Mansion House", x: 49, y: 56, connections: ["circle-cannon-street", "circle-blackfriars"], interchange: ["district"] },
-      { id: "circle-blackfriars", name: "Blackfriars", x: 47, y: 58, connections: ["circle-mansion-house", "circle-temple"], interchange: ["district"] },
-      { id: "circle-temple", name: "Temple", x: 45, y: 60, connections: ["circle-blackfriars", "circle-embankment"], interchange: ["district"] },
-      { id: "circle-embankment", name: "Embankment", x: 43, y: 62, connections: ["circle-temple", "circle-westminster"], interchange: ["district", "bakerloo", "northern"] },
-      { id: "circle-westminster", name: "Westminster", x: 41, y: 64, connections: ["circle-embankment", "circle-st-james-park"], interchange: ["district", "jubilee"] },
-      { id: "circle-st-james-park", name: "St James's Park", x: 39, y: 66, connections: ["circle-westminster", "circle-victoria"], interchange: ["district"] },
-      { id: "circle-victoria", name: "Victoria", x: 37, y: 68, connections: ["circle-st-james-park", "circle-sloane-square"], interchange: ["district", "victoria"] },
-      { id: "circle-sloane-square", name: "Sloane Square", x: 35, y: 66, connections: ["circle-victoria", "circle-south-kensington"], interchange: ["district"] },
-      { id: "circle-south-kensington", name: "South Kensington", x: 33, y: 64, connections: ["circle-sloane-square", "circle-gloucester-road"], interchange: ["district", "piccadilly"] },
-      { id: "circle-gloucester-road", name: "Gloucester Road", x: 31, y: 62, connections: ["circle-south-kensington", "circle-high-street-kensington"], interchange: ["district", "piccadilly"] },
-      { id: "circle-high-street-kensington", name: "High Street Kensington", x: 29, y: 60, connections: ["circle-gloucester-road", "circle-notting-hill-gate"], interchange: ["district"] },
+      { id: "circle-tower-hill", name: "Tower Hill", x: 55, y: 49, connections: ["circle-aldgate", "circle-monument"], interchange: ["circle"] },
+      { id: "circle-monument", name: "Monument", x: 53, y: 52, connections: ["circle-tower-hill", "circle-cannon-street"], interchange: ["circle"] },
+      { id: "circle-cannon-street", name: "Cannon Street", x: 51, y: 54, connections: ["circle-monument", "circle-mansion-house"], interchange: ["circle"] },
+      { id: "circle-mansion-house", name: "Mansion House", x: 49, y: 56, connections: ["circle-cannon-street", "circle-blackfriars"], interchange: ["circle"] },
+      { id: "circle-blackfriars", name: "Blackfriars", x: 47, y: 58, connections: ["circle-mansion-house", "circle-temple"], interchange: ["circle"] },
+      { id: "circle-temple", name: "Temple", x: 45, y: 60, connections: ["circle-blackfriars", "circle-embankment"], interchange: ["circle"] },
+      { id: "circle-embankment", name: "Embankment", x: 43, y: 62, connections: ["circle-temple", "circle-westminster"], interchange: ["circle", "bakerloo", "northern"] },
+      { id: "circle-westminster", name: "Westminster", x: 41, y: 64, connections: ["circle-embankment", "circle-st-james-park"], interchange: ["circle", "jubilee"] },
+      { id: "circle-st-james-park", name: "St James's Park", x: 39, y: 66, connections: ["circle-westminster", "circle-victoria"], interchange: ["circle"] },
+      { id: "circle-victoria", name: "Victoria", x: 37, y: 68, connections: ["circle-st-james-park", "circle-sloane-square"], interchange: ["circle", "victoria"] },
+      { id: "circle-sloane-square", name: "Sloane Square", x: 35, y: 66, connections: ["circle-victoria", "circle-south-kensington"], interchange: ["circle"] },
+      { id: "circle-south-kensington", name: "South Kensington", x: 33, y: 64, connections: ["circle-sloane-square", "circle-gloucester-road"], interchange: ["circle", "piccadilly"] },
+      { id: "circle-gloucester-road", name: "Gloucester Road", x: 31, y: 62, connections: ["circle-south-kensington", "circle-high-street-kensington"], interchange: ["circle", "piccadilly"] },
+      { id: "circle-high-street-kensington", name: "High Street Kensington", x: 29, y: 60, connections: ["circle-gloucester-road", "circle-notting-hill-gate"], interchange: ["circle"] },
       { id: "circle-notting-hill-gate", name: "Notting Hill Gate", x: 27, y: 58, connections: ["circle-high-street-kensington", "circle-bayswater"], interchange: ["central", "district"] },
       { id: "circle-bayswater", name: "Bayswater", x: 25, y: 56, connections: ["circle-notting-hill-gate", "circle-paddington"], interchange: ["district"] }
     ]
@@ -306,3 +305,17 @@ export const tubeLines: TubeLine[] = [
     ]
   }
 ];
+
+// Function to get all station IDs and create a lookup map
+export const getAllStations = (): Record<string, Station> => {
+  const allStations: Record<string, Station> = {};
+  
+  // Loop through all tube lines and collect their stations
+  tubeLines.forEach(line => {
+    line.stations.forEach(station => {
+      allStations[station.id] = station;
+    });
+  });
+  
+  return allStations;
+};
