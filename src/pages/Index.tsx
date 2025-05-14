@@ -15,8 +15,7 @@ const Index = () => {
       </div>
 
       <Tabs 
-        defaultValue={activeTab} 
-        onValueChange={setActiveTab}
+        defaultValue="tracker" 
         className="flex-1 flex flex-col"
       >
         <div className="flex justify-center border-b bg-white">

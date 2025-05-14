@@ -38,7 +38,7 @@ const UndergroundMap = () => {
   };
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-gray-50">
+    <div className="w-full h-full overflow-hidden bg-gray-50 relative">
       <MapControls 
         zoom={zoom}
         onZoomIn={handleZoomIn}
@@ -49,13 +49,13 @@ const UndergroundMap = () => {
       />
       
       <div 
-        className="relative w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
+        className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
         onMouseMove={handleDrag}
       >
         <div 
           className="absolute transition-transform duration-200 origin-center"
           style={{ 
-            transform: `scale(${zoom}) translate(${position.x}px, ${position.y}px)`,
+            transform: `scale(${zoom}) translate(${position.x/zoom}px, ${position.y/zoom}px)`,
             width: '100%',
             height: '100%'
           }}
