@@ -6,8 +6,6 @@ import OfficialTubeMap from "@/components/OfficialTubeMap";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState<string>("tracker");
-
   return (
     <div className="flex flex-col min-h-screen">
       <div className="p-4 bg-white shadow">
@@ -15,7 +13,7 @@ const Index = () => {
       </div>
 
       <Tabs 
-        defaultValue="tracker" 
+        defaultValue="official" 
         className="flex-1 flex flex-col"
       >
         <div className="flex justify-center border-b bg-white">

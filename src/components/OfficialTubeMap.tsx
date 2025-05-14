@@ -27,13 +27,20 @@ const OfficialTubeMap = () => {
       </div>
       
       {/* Map container */}
-      <div className="relative flex-1 overflow-auto bg-gray-100 flex justify-center">
+      <div className="relative flex-1 overflow-auto bg-gray-100 flex justify-center items-center p-4">
         <div className="relative max-w-full h-auto">
-          <AspectRatio ratio={1.4} className="min-w-[1000px]">
+          <AspectRatio ratio={1.4} className="min-w-[800px] w-full">
             <img 
               src="/lovable-uploads/67bd0bb5-9fe8-4ada-8571-7f34067c5d58.png" 
               alt="London Underground Map" 
               className="w-full h-full object-contain"
+              onError={(e) => {
+                console.error("Image failed to load");
+                const target = e.target as HTMLImageElement;
+                target.style.border = "1px solid red";
+                target.style.padding = "20px";
+                target.src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23FF0000' width='100' height='100'/%3E%3Ctext fill='%23FFFFFF' font-family='Arial' font-size='14' x='10' y='50'%3EImage Error%3C/text%3E%3C/svg%3E";
+              }}
             />
           </AspectRatio>
           
